@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap');
+
+.App {
+  margin: 0;
+  height: 100%;
+  background: #FEFBE6;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column
+}
+
+.header {
+  width: 100%;
+}
+
+.arrow-back {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.logo {
+  color: #000;
+  outline: none;
+  font-size: 96px;
+  font-family: 'Vampiro One', cursive;
+
+  text-align: center;
+  top: 20px;
+}
+
+.F {
+  color: #ffd900;
+}
+
+.subtitle p {
+  font-size: 32px;
+  font-family: 'Happy Monkey', cursive;
+
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 650px) {
+  .logo {
+    font-size: 32px;
+  }
+
+  .subtitle p {
+    font-size: 24px;
+  }
+}
