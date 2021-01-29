@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const express = require('express');
-// const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
@@ -22,17 +21,7 @@ con.once('open', () => {
 }).catch(error => {
   console.log(error);
 });
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
 
-// const apis = require("./api");
-// app.use("/api", apis);
-
-// Connect to Mongo
-// mongoose.connect(process.env.MONGO_DB, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// }).then(() => console.log('MongoDB Connected...')).catch(err => console.log(err));
 const musicsRouter = require('./routes/music');
 const usersRouter = require('./routes/user');
 
