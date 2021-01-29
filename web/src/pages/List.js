@@ -1,10 +1,19 @@
+import { useEffect, useState } from 'react';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import db from '../services/db';
 
 import './styles/List.css';
 
 function List() {
-  const id = 1;
+  const [musics, setMusics] = useState([]);
+
+  useEffect(() => {
+    db.get('/').then(res => {
+      setMusics(res.data);
+    });
+  }, []);
+
   return (
     <div className="container">
       <div className="subtitle">
@@ -18,11 +27,14 @@ function List() {
       </div>
 
       <div className="cards-container">
-        <Link to={`/lyric/${id}`} className="card">
-          <p className="music-title">Sparkleas dfas dasdf</p>
-          <p className="band-name">Radwim psasdfa dfasdas</p>
-        </Link>
-        
+        {musics.map(music => {
+          return (
+            <Link key={music._id} to={`/lyric/${music._id}`} className="card">
+              <p className="music-title">{music.title}</p>
+              <p className="band-name">{music.band}</p>
+            </Link>
+          );
+        })}
       </div>
 
       <Link to="/newMusic" className="create-button">
